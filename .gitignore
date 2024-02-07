@@ -1,0 +1,12 @@
+*/__pycache__
+__pycache__/
+*/*/__pycache__
+
+# ignore stockfish-9-mac
+stockfish-9-mac/
+stockfish-11-mac/*
+stockfish-16-mac/*
+stockfish-9-mac/*
+stockfish-11-mac
+stockfish-16-mac
+
