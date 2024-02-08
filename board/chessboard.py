@@ -15,17 +15,17 @@ class Board:
         puzzle = self.client.get_puzzle()
 
         self.stockfish.set_fen_position(puzzle.get("fen"))
-        print(self.stockfish.engine.get_fen_position())
+        turn = self.stockfish.engine.get_fen_position().split(" ")[1]
 
         moves = deque(puzzle.get("move"))
 
         while moves:
             print(f"\ncomputer moves  :  {moves[0]}")
             self.stockfish.move_piece([moves.popleft()])
-            self.stockfish.get_board_visual()
-
-            legal = [str(legal_move) for legal_move in self.board.legal_moves]
-            print(legal)
+            if turn == "w":
+                self.stockfish.get_board_visual(False)
+            else:
+                self.stockfish.get_board_visual()
             while True:
                 move = input("Enter move : ")
                 if move == moves[0]:

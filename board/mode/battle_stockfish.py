@@ -5,7 +5,7 @@ from board.chessboard import Board as cb
 def battle(board: cb, start_white: bool = True):
 
     engine = board.stockfish
-    engine.get_board_visual(start_white)
+    engine.get_board_visual(start_white, False)
     while True:
         level = input("Enter level(must be int) 1 ~ 20 : ")
         try:
@@ -19,7 +19,7 @@ def battle(board: cb, start_white: bool = True):
         move = engine.get_best_move()
         engine.move_piece([move])
         board.board.push_san(move)
-        engine.get_board_visual(start_white)
+        engine.get_board_visual(start_white, False)
 
     while True:
         move = input(
@@ -40,12 +40,12 @@ def battle(board: cb, start_white: bool = True):
                 print("game over")
                 break
 
-            engine.get_board_visual(start_white)
+            engine.get_board_visual(start_white, False)
             sf_move = engine.get_best_move()
             engine.move_piece([sf_move])
             board.board.push_san(sf_move)
             print(f"sf moves : {sf_move}")
-            engine.get_board_visual(start_white)
+            engine.get_board_visual(start_white, False)
 
             if board.board.is_game_over():
                 print("game over")

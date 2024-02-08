@@ -1,4 +1,4 @@
-from stockfish import Stockfish
+from board.stockfish import Stockfish
 
 
 class StockFishEngine:
@@ -28,9 +28,9 @@ class StockFishEngine:
     def get_evaluation(self):
         return self.engine.get_evaluation()
 
-    def get_board_visual(self, white=True):
-        print(self.engine.get_board_visual(white))
-        return self.engine.get_board_visual()
+    def get_board_visual(self, white=True, alpahbet=False):
+        print(self.engine.get_board_visual(white, alpahbet))
+        return self.engine.get_board_visual(white, alpahbet)
 
     def set_skill_level(self, level):
         self.engine.set_skill_level(level)
